@@ -1,0 +1,60 @@
+/* stylelint-disable */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-natural-green: #7D9D85;
+  --color-natural-green-dark: #2D4739;
+  --color-natural-earth: #C27664;
+  --color-natural-slate: #3E423A;
+  --color-natural-gray: #747A6F;
+  --color-natural-bg: #FDFCF8;
+  --color-natural-muted: #F4F1EA;
+  --color-natural-border: #E9E4D9;
+  --color-natural-card: #FFFFFF;
+  --color-natural-ink: #3E423A;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.dark {
+  --color-natural-bg: #0C0E0C;
+  --color-natural-slate: #E2E8E0;
+  --color-natural-gray: #94A394;
+  --color-natural-muted: #151815;
+  --color-natural-border: #222822;
+  --color-natural-green-dark: #A3B8A3;
+  --color-natural-card: #121512;
+  --color-natural-ink: #E2E8E0;
+}
+
+@layer base {
+  body {
+    @apply bg-natural-bg text-natural-ink font-sans transition-colors duration-300;
+  }
+}
+
+.prose-medical {
+  @apply prose prose-slate max-w-none dark:prose-invert;
+  --tw-prose-headings: var(--color-natural-green-dark);
+  --tw-prose-links: var(--color-natural-green);
+  --tw-prose-bold: var(--color-natural-green-dark);
+}
+
+.natural-grid {
+  background-image: radial-gradient(circle at 1px 1px, var(--color-natural-border) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.glass-morphism {
+  @apply bg-white/70 dark:bg-black/70 backdrop-blur-md border border-natural-border/30;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-br from-natural-green to-natural-green-dark bg-clip-text text-transparent;
+}
